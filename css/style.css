@@ -402,7 +402,7 @@ body {
     justify-content: center;
     position: absolute;
     left: calc(50% - 10px);
-    transform: translateX(-50%);
+    transform: translateX(-55%);
     bottom: 5px;
 }
 .landing ul li {
