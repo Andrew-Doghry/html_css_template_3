@@ -17,7 +17,6 @@ a {
 }
 ul {
     list-style: none;
-   
 }
 
 body {
@@ -25,6 +24,8 @@ body {
     margin: 0px;
     font-family: 'Work Sans', sans-serif;
     background-color: white;
+    overflow-x: hidden;
+    width: 100vw;
     
 }
 .main-header {
@@ -293,7 +294,7 @@ body {
         position: absolute;
         top: 100%;
         left: 0px;
-        background: var(--transparent-color);
+        background: transparent;
         width: 100%;
     }
     .header .container nav .toogle-menu + ul a {
@@ -334,15 +335,42 @@ body {
 
 
 /* start of landing */
-.landing{
-    background-color: black;
+
+.landing .slider {
+display: flex; 
+width: 300vw;
+transform: translateX(0vw);
+transition: 0.3s;
+}
+.landing .slider .slide:nth-child(2) {
+    background-image: url("../images/elzero/landing.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.landing .slider .slide:nth-child(3) {
     background-image: url("../images/owl-g6ab2f158a_1920.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.landing .slider .slide:nth-child(4) {
+    background-image: url("../images/bird-g00d1d5c39_1920.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.landing{
+overflow: hidden;
+    background-color: black;
     background-size: cover;
     min-height: 100vh;
     position: relative;
     background-repeat: no-repeat;
     background-position: 0px 150px;
-    z-index: -5;
 }
 .pros .overlay ,
 .landing .overlay{
@@ -352,7 +380,6 @@ body {
     left: 0px;
     height: 100%;
     width: 100%;
-    z-index: -1;
 }
 .landing .text {
     background-color: var(--transparent-color);
@@ -366,7 +393,6 @@ body {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-
 }
 .landing .text .content {
     max-width: 70%;
@@ -382,41 +408,42 @@ body {
     font-weight: normal;
     font-size: 14px;
 }
-
-
 .landing .change-background {
     color: white;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    padding: 20px;
+    z-index: 1000;
 }
 .landing .change-background:first-of-type{
     left: 30px;
+    transform: translateY(-50%);
 }
 .landing .change-background:last-of-type{
-    right: 30px;
+    right: 40px;
 }
-.landing ul {
-    display: flex;
-    width: fit-content;
-    padding: 0px;
+.landing .bullet {
     position: absolute;
-    left: calc(50% );
+    display: flex;
+    flex-flow: row;
+    justify-content: center !important;
+    left: 50%;
     transform: translateX(-50%);
-    bottom: 5px;
+    bottom: 5px;    
 }
-.landing ul li {
+.landing .bullet span {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     border: 1px solid white;
     margin: 5px;
 }
-.landing ul .active{
+.landing .bullet .active{
     background-color: var(--main-color);
 }
 
-@media (max-width:997px){
+@media (max-width:767px){
     .landing {
         background-position: 50% 150px;
     }
@@ -425,14 +452,20 @@ body {
         padding: 10px;
         text-align: center;
         align-items: center;
-        margin-top: 20px;
     }
-    .landing .change-background {
-        display: none;
+    .landing .change-background:first-of-type {
+    left: 5px;
+    
+}
+.landing .change-background:last-of-type {
+        right: 5px;
+    
+    
     }
 }
 
 /* end of landing */
+ 
 
 /* start of services */
 .services {
@@ -451,9 +484,8 @@ body {
 .services .services-container .col .serv i{
     width: 50px;
     margin-right: 30px;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 50px;
-    color: var(--main-color);
     
 }
 .services .services-container .col .serv .text{
@@ -466,10 +498,10 @@ body {
     text-transform: capitalize;
 }
 .services .services-container .col .serv .text p {
-    letter-spacing: -0.2px;
+    letter-spacing: -1px;
     word-spacing: 1px;
-    line-height: 1.8rem;
-    font-size: 20px;
+    line-height: 1.8;
+    font-size: 15px;
     margin-top: -5px;
 }
 @media (max-width:767px) {
@@ -617,10 +649,10 @@ body {
 .shuffle-container {
     margin: 5px 0px;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 5px;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 2px;
     justify-content: center;
-
+    overflow: hidden;
     
 }
 .shuffle-container .col .serv .image  {
@@ -636,13 +668,10 @@ position: relative;
 }
 .shuffle-container .col .serv {
     background-color: #333;
-    /* overflow: hidden; */
+    overflow: hidden;
     transition: 0.3s;
     position: relative;
     min-height: 300px;
-    padding-bottom: 5px;
-    border-radius: 10px;
-    margin-top: 10px;
 }
 .shuffle-container .col .serv:hover {
     transform: translateZ(10px);
@@ -654,10 +683,9 @@ position: relative;
     font-size: 32px;
     text-indent: 10px;
     color: white;
-    text-transform: capitalize;
 }
 .shuffle-container .col .serv p {
-    text-indent: 20px;
+    text-indent: 10px;
     color: var(--main-color);
 }
 .shuffle-container .col .serv .overlay {
@@ -890,13 +918,9 @@ position: relative;
 .test .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 .test .container .col {
     flex: 1;
-    min-height: 700px;
-}
-.test .container .col:last-child h1 {
 }
 .test .container .col:first-child h1 ,
 .test .container .col:last-child h1 {
@@ -906,7 +930,6 @@ position: relative;
     text-transform: uppercase;
     letter-spacing: -1px;
     position: relative;
-    margin-top: 30px;
 }
 .test .container .col:first-child h1::after,
 .test .container .col:last-child h1::after {
